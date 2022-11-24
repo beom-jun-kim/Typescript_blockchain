@@ -2,12 +2,8 @@
 // 타입스크립트는 작성자가 쓰는 모든것에 대한 타입을 이해하고 있어야 한다
 // myPackage.d.ts라는 정의파일에서 타입 정해주면 import가 된다
 
-import { init, exit } from "myPackage";
+// 자바스크립트 타입스크립트 같이 쓰는법
+// 1. 파일 전체를 위한 타입 정의 생성
+// 2. 코멘트
 
-init({
-    url:"true"
-})
-
-exit(1)
-
-localStorage.clear()
+import { init, exit } from "./myPackage";
