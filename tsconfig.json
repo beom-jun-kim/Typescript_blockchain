@@ -8,6 +8,7 @@
     "compilerOptions": {
         "outDir": "build",/* build라는 폴더에 만들어진 코드를 넣을 것 */
         "target": "ES6", /* ES3는 const x , 화살표함수 x  런타임환경 지정*/
-        "lib": ["ES6","DOM"] /* DOM은 타입스크립트에게 어떤 api를 사용하고 어떤 환경에서 코드를 실행하는지를 말해준다 */
+        "lib": ["ES6","DOM"], /* DOM은 타입스크립트에게 어떤 api를 사용하고 어떤 환경에서 코드를 실행하는지를 말해준다 */
+        "strict": true /* 모든 엄격한 타입검사 옵션을 활성화 */
     }
 }
