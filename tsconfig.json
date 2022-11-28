@@ -8,8 +8,10 @@
     "compilerOptions": {
         "outDir": "build",/* build라는 폴더에 만들어진 코드를 넣을 것 */
         "target": "ES6", /* ES3는 const x , 화살표함수 x  런타임환경 지정*/
-        "lib": ["ES6","DOM"], /* DOM은 타입스크립트에게 어떤 api를 사용하고 어떤 환경에서 코드를 실행하는지를 말해준다 */
+        "lib": ["ES6"], /* DOM은 타입스크립트에게 어떤 api를 사용하고 어떤 환경에서 코드를 실행하는지를 말해준다 */
         "strict": true, /* 모든 엄격한 타입검사 옵션을 활성화 */
-        "allowJs": true /* 타입스크립트에 js 허용 */
+        // "allowJs": true, 타입스크립트에 js 허용
+        "esModuleInterop": true, /* import오류 해결(ES6 모듈 사양을 준수하여 CommonJS 모듈을 가져올 수 있게 된다) */
+        "module": "CommonJS" /* 어떤 방식의 코드로 컴파일 될지 결정, 브라우저 앱은 UMD */
     }
 }

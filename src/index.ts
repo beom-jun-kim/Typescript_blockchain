@@ -1,9 +1,33 @@
-// 정의 파일은 자바스크립트 코드와 모양을 타입스크립에 설명해주는 파일이다
-// 타입스크립트는 작성자가 쓰는 모든것에 대한 타입을 이해하고 있어야 한다
-// myPackage.d.ts라는 정의파일에서 타입 정해주면 import가 된다
+import crypto from "crypto"; /* Node.js 내장모듈, 여러 해시 함수를 통한 암호화 기능을 제공 */
 
-// 자바스크립트 타입스크립트 같이 쓰는법
-// 1. 파일 전체를 위한 타입 정의 생성
-// 2. 코멘트
+// 타입스크립트로 만들어지지 않은 패키지를 받았는데 타입 정의도 안되어있을때
+// DefinitelyTyped => https://github.com/DefinitelyTyped/DefinitelyTyped
+// DefinitelyTyped crypto 쓰기 => npm i -D @types/node
 
-import { init, exit } from "./myPackage";
+interface BlockShape {
+  hash: string;
+  prevHash: string;
+  height: number;
+  data: string;
+}
+
+class Block implements BlockShape {
+  public hash: string;
+
+  /* 블록생성 */
+  constructor(
+    public prevHash: string,
+    public height: number,
+    public data: string
+  ) {
+
+    /* 블록 데이터 */
+    this.hash = Block.calculateHash(prevHash, height, data);
+  }
+  static calculateHash(prevHash: string, height: number, data: string) {
+
+    /* 데이터의 해쉬값 생성 */
+    const toHash = `${prevHash}${height}${data}`;
+    return crypto.createHash("sha256").update(toHash).digest("hex");
+  }
+}
